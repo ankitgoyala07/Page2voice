@@ -1,5 +1,6 @@
-package com.example.page2voice
+package com.example.page2voice.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -35,7 +36,19 @@ class LoginActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Page2VoiceTheme {
-                LoginScreen()
+                LoginScreen(
+                    onLoginClick = { _, _ ->
+                        val intent = Intent(this, HomePageActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    },
+                    onForgotClick = {
+                        // Handle forgot password
+                    },
+                    onSignUpClick = {
+                        // Handle sign up
+                    }
+                )
             }
         }
     }
@@ -63,7 +76,6 @@ fun LoginScreen(
         ) {
             Spacer(modifier = Modifier.height(60.dp))
 
-            // Logo icon representation
             Box(
                 modifier = Modifier
                     .size(64.dp)
@@ -81,7 +93,6 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // App Name
             Text(
                 text = "Page2Voice",
                 fontSize = 24.sp,
@@ -91,7 +102,6 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Welcome text
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.Start
@@ -112,7 +122,6 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(28.dp))
 
-            // Email Field Label
             Text(
                 text = "Email Address",
                 fontSize = 14.sp,
@@ -151,7 +160,6 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Password Field Label & Forgot Password Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -210,7 +218,6 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Login Button
             Button(
                 onClick = { onLoginClick(email, password) },
                 shape = RoundedCornerShape(12.dp),
@@ -230,28 +237,6 @@ fun LoginScreen(
             }
 
             Spacer(modifier = Modifier.weight(1f))
-
-            // Footer: Don't have an account? Sign Up
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 32.dp),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Don't have an account? ",
-                    fontSize = 14.sp,
-                    color = SecondaryText
-                )
-                Text(
-                    text = "Sign Up",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Primary,
-                    modifier = Modifier.clickable { onSignUpClick() }
-                )
-            }
         }
     }
 }
