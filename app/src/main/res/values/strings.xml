@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Page2Voice</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_my_library">MyLibraryActivity</string>
 </resources>

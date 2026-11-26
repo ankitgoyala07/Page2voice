@@ -17,6 +17,18 @@
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.Page2Voice"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.MyLibraryActivity"
+            android:exported="true"
+            android:label="@string/title_activity_my_library"
+            android:theme="@style/Theme.Page2Voice"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
