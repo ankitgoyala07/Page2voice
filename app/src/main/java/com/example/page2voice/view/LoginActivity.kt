@@ -45,7 +45,8 @@ class LoginActivity : ComponentActivity() {
                         finish()
                     },
                     onForgotClick = {
-                        // Handle forgot password
+                        val intent = Intent(this, ForgetPasswordActivity::class.java)
+                        startActivity(intent)
                     },
                     onSignUpClick = {
                         val intent = Intent(this, SignUpActivity::class.java)
@@ -137,7 +138,7 @@ fun LoginScreen(
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
-                placeholder = { Text("Enter your email address", color = SecondaryText) },
+                placeholder = { Text("", color = SecondaryText) },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Email,
@@ -187,7 +188,7 @@ fun LoginScreen(
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                placeholder = { Text("Enter your password", color = SecondaryText) },
+                placeholder = { Text("", color = SecondaryText) },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Lock,
