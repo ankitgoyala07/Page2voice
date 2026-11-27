@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.page2voice.R
 import com.example.page2voice.ui.theme.*
 
 class LoginActivity : ComponentActivity() {
@@ -46,7 +48,8 @@ class LoginActivity : ComponentActivity() {
                         // Handle forgot password
                     },
                     onSignUpClick = {
-                        // Handle sign up
+                        val intent = Intent(this, SignUpActivity::class.java)
+                        startActivity(intent)
                     }
                 )
             }
@@ -84,10 +87,9 @@ fun LoginScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    imageVector = Icons.Default.Lock,
+                    painter = painterResource(R.drawable.p2v_logo),
                     contentDescription = "Logo",
-                    tint = Primary,
-                    modifier = Modifier.size(32.dp)
+                    tint = Color.Unspecified
                 )
             }
 
@@ -237,6 +239,28 @@ fun LoginScreen(
             }
 
             Spacer(modifier = Modifier.weight(1f))
+
+            // Footer: Don't have an account? Sign Up
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 32.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Don't have an account? ",
+                    fontSize = 14.sp,
+                    color = SecondaryText
+                )
+                Text(
+                    text = "Sign Up",
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Primary,
+                    modifier = Modifier.clickable { onSignUpClick() }
+                )
+            }
         }
     }
 }

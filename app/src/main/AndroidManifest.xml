@@ -19,6 +19,7 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,6 +27,12 @@
             android:name=".view.HomePageActivity"
             android:exported="false"
             android:label="@string/title_activity_home_page"
+            android:theme="@style/Theme.Page2Voice"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.SignUpActivity"
+            android:exported="false"
+            android:label="@string/title_activity_sign_up"
             android:theme="@style/Theme.Page2Voice"
             android:windowSoftInputMode="adjustResize" />
     </application>
