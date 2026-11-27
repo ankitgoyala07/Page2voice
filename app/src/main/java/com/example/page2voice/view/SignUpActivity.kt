@@ -7,7 +7,17 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -18,8 +28,22 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,7 +60,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.page2voice.R
-import com.example.page2voice.ui.theme.*
+import com.example.page2voice.ui.theme.Background
+import com.example.page2voice.ui.theme.Border
+import com.example.page2voice.ui.theme.Dimens
+import com.example.page2voice.ui.theme.MainText
+import com.example.page2voice.ui.theme.Page2VoiceTheme
+import com.example.page2voice.ui.theme.Primary
+import com.example.page2voice.ui.theme.SecondaryText
+import com.example.page2voice.ui.theme.Surface
 
 class SignUpActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,13 +114,14 @@ fun SignUpScreen(
                 .fillMaxSize()
                 .verticalScroll(scrollState)
                 .padding(
-    horizontal = Dimens.screenPadding,
-    vertical = Dimens.xl
-),
+                    horizontal = Dimens.screenPadding,
+                    vertical = Dimens.lg
+                ),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(20.dp))
 
+            // Logo Icon
             Box(
                 modifier = Modifier
                     .size(64.dp)
@@ -106,7 +138,7 @@ fun SignUpScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-
+            // App Name
             Text(
                 text = "Page2Voice",
                 style = MaterialTheme.typography.headlineLarge,
@@ -122,11 +154,10 @@ fun SignUpScreen(
             ) {
                 Text(
                     text = "Create Account",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.headlineLarge,
                     color = MainText
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = "Create an account to get started with Page2Voice.",
                     style = MaterialTheme.typography.bodyLarge,
@@ -150,7 +181,7 @@ fun SignUpScreen(
             OutlinedTextField(
                 value = fullName,
                 onValueChange = { fullName = it },
-                placeholder = { Text("", color = SecondaryText) },
+                placeholder = { Text("Enter your full name", color = SecondaryText) },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Person,
@@ -159,7 +190,7 @@ fun SignUpScreen(
                     )
                 },
                 singleLine = true,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(Dimens.buttonRadius),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = Border,
@@ -189,7 +220,7 @@ fun SignUpScreen(
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
-                placeholder = { Text("", color = SecondaryText) },
+                placeholder = { Text("Enter your email", color = SecondaryText) },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Email,
@@ -198,7 +229,7 @@ fun SignUpScreen(
                     )
                 },
                 singleLine = true,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(Dimens.buttonRadius),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = Border,
@@ -228,7 +259,7 @@ fun SignUpScreen(
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                placeholder = { Text("", color = SecondaryText) },
+                placeholder = { Text("Enter your password", color = SecondaryText) },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Lock,
@@ -245,7 +276,7 @@ fun SignUpScreen(
                 visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 singleLine = true,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(Dimens.buttonRadius),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = Border,
@@ -275,7 +306,7 @@ fun SignUpScreen(
             OutlinedTextField(
                 value = confirmPassword,
                 onValueChange = { confirmPassword = it },
-                placeholder = { Text("", color = SecondaryText) },
+                placeholder = { Text("Confirm your password", color = SecondaryText) },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Lock,
@@ -292,7 +323,7 @@ fun SignUpScreen(
                 visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 singleLine = true,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(Dimens.buttonRadius),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = Border,
@@ -350,19 +381,13 @@ fun SignUpScreen(
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(48.dp)
+                    .height(Dimens.buttonHeight)
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = "Create Account",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold
-                    )
-
-                }
+                Text(
+                    text = "Create Account",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -371,7 +396,7 @@ fun SignUpScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 16.dp),
+                    .padding(bottom = 24.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {

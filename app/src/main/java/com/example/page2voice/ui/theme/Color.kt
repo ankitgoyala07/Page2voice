@@ -28,3 +28,21 @@ val Disabled = Color(0xFFCBD5E1)
 val ProgressTrack = Color(0xFFE2E8F0)
 val CardBackground = Color(0xFFFFFFFF)
 val ChipBackground = Color(0xFFEEF2FF)
+
+// Camera Permission Screen Colors
+
+val CameraPermissionBackground = Background
+
+val CameraPermissionWhite = Surface
+
+val CameraPermissionPurple = Primary
+
+val CameraPermissionTitle = MainText
+
+val CameraPermissionBody = SecondaryText
+
+val CameraPermissionCardBorder = Border
+
+val CameraPermissionHalo = Primary.copy(alpha = 0.1f)
+
+val CameraPermissionFlash = SecondaryText.copy(alpha = 0.5f)

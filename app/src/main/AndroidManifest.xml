@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -39,6 +45,23 @@
             android:name=".view.ForgetPasswordActivity"
             android:exported="false"
             android:label="@string/title_activity_forget_password"
+            android:theme="@style/Theme.Page2Voice"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.CameraPermissionActivity"
+            android:exported="true"
+            android:label="Camera Permission"
+            android:theme="@style/Theme.Page2Voice">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.CameraPErmissionAcitivity"
+            android:exported="false"
+            android:label="@string/title_activity_camera_permission_acitivity"
             android:theme="@style/Theme.Page2Voice"
             android:windowSoftInputMode="adjustResize" />
     </application>
