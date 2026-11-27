@@ -87,7 +87,7 @@ private fun ScanDocumentScreen(onBack: () -> Unit) {
     var permissionGranted by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) ==
-                PackageManager.PERMISSION_GRANTED
+                    PackageManager.PERMISSION_GRANTED
         )
     }
     var showPermissionDialog by remember { mutableStateOf(false) }
@@ -130,15 +130,15 @@ private fun ScanDocumentScreen(onBack: () -> Unit) {
                 TextButton(
                     colors = ButtonDefaults.textButtonColors(contentColor = CameraPermissionPurple),
                     onClick = {
-                    showPermissionDialog = false
-                    if (permanentlyDenied) {
-                        context.startActivity(
-                            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                                data = Uri.fromParts("package", context.packageName, null)
-                            }
-                        )
-                    } else cameraPermission.launch(Manifest.permission.CAMERA)
-                }) { Text(if (permanentlyDenied) "Open Settings" else "Try again") }
+                        showPermissionDialog = false
+                        if (permanentlyDenied) {
+                            context.startActivity(
+                                Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                                    data = Uri.fromParts("package", context.packageName, null)
+                                }
+                            )
+                        } else cameraPermission.launch(Manifest.permission.CAMERA)
+                    }) { Text(if (permanentlyDenied) "Open Settings" else "Try again") }
             },
             dismissButton = {
                 TextButton(
@@ -192,7 +192,7 @@ private fun ScanDocumentScreen(onBack: () -> Unit) {
                     Spacer(Modifier.height(24.dp))
                 } else {
                     Box(
-                    modifier = Modifier.size(88.dp).clip(CircleShape).background(CameraPermissionHalo),
+                        modifier = Modifier.size(88.dp).clip(CircleShape).background(CameraPermissionHalo),
                         contentAlignment = Alignment.Center
                     ) {
                         Box(
