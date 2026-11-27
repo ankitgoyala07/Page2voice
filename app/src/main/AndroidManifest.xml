@@ -13,14 +13,8 @@
         android:theme="@style/Theme.Page2Voice">
         <activity
             android:name=".view.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login"
-            android:theme="@style/Theme.Page2Voice"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".view.HomePageActivity"
             android:exported="true"
-            android:label="@string/title_activity_home_page"
+            android:label="@string/title_activity_login"
             android:theme="@style/Theme.Page2Voice"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -29,6 +23,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.HomePageActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home_page"
+            android:theme="@style/Theme.Page2Voice"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.SignUpActivity"
+            android:exported="false"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/Theme.Page2Voice"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.ForgetPasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_forget_password"
+            android:theme="@style/Theme.Page2Voice"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
