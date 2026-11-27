@@ -1,13 +1,9 @@
 <resources>
     <string name="app_name">Page2Voice</string>
     <string name="title_activity_login">LoginActivity</string>
-<<<<<<< HEAD
     <string name="title_activity_home_page">HomePageActivity</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_forget_password">ForgetPasswordActivity</string>
-    <string name="title_activity_camera_permission_acitivity">CameraPErmissionAcitivity</string>
-</resources>
-=======
+    <string name="title_activity_camera_permission">CameraPermissionActivity</string>
     <string name="title_activity_my_library">MyLibraryActivity</string>
 </resources>
->>>>>>> Aastha

@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Page2Voice">
+
         <activity
             android:name=".view.LoginActivity"
             android:exported="true"
@@ -25,57 +26,43 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".view.HomePageActivity"
             android:exported="false"
             android:label="@string/title_activity_home_page"
             android:theme="@style/Theme.Page2Voice"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".view.SignUpActivity"
             android:exported="false"
             android:label="@string/title_activity_sign_up"
             android:theme="@style/Theme.Page2Voice"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".view.ForgetPasswordActivity"
             android:exported="false"
             android:label="@string/title_activity_forget_password"
             android:theme="@style/Theme.Page2Voice"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".view.CameraPermissionActivity"
-            android:exported="true"
-            android:label="Camera Permission"
-            android:theme="@style/Theme.Page2Voice">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".view.CameraPErmissionAcitivity"
             android:exported="false"
-            android:label="@string/title_activity_camera_permission_acitivity"
-            android:theme="@style/Theme.Page2Voice"
-            android:windowSoftInputMode="adjustResize" />
+            android:label="Camera Permission"
+            android:theme="@style/Theme.Page2Voice" />
+
         <activity
             android:name=".view.MyLibraryActivity"
-            android:exported="true"
-            android:label="@string/title_activity_my_library"
+            android:exported="false"
+            android:label="My Library"
             android:theme="@style/Theme.Page2Voice"
-            android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

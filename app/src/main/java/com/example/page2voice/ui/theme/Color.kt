@@ -30,19 +30,22 @@ val CardBackground = Color(0xFFFFFFFF)
 val ChipBackground = Color(0xFFEEF2FF)
 
 // Camera Permission Screen Colors
-
 val CameraPermissionBackground = Background
-
 val CameraPermissionWhite = Surface
-
 val CameraPermissionPurple = Primary
-
 val CameraPermissionTitle = MainText
-
 val CameraPermissionBody = SecondaryText
-
 val CameraPermissionCardBorder = Border
-
 val CameraPermissionHalo = Primary.copy(alpha = 0.1f)
-
 val CameraPermissionFlash = SecondaryText.copy(alpha = 0.5f)
+
+// Library Colors
+val LibraryPrimary = Primary
+val LibraryPrimarySoft = ChipBackground
+val LibraryTeal = Accent
+val LibraryBackground = Background
+val LibraryText = MainText
+val LibrarySecondaryText = SecondaryText
+val LibraryMutedText = Color(0xFF94A3B8)
+val LibraryBorder = Border
+val LibraryCover = Color(0xFFEAEFF8)
